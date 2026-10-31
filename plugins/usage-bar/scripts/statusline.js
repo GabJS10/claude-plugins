@@ -6,7 +6,6 @@ const DIM = [107, 106, 101];
 const TERRACOTTA = [217, 119, 87];
 const DEEP = [193, 95, 60];
 const RED = [229, 72, 77];
-const WINDOWS = [['5h', 'five_hour'], ['7d', 'seven_day']];
 
 function formatDuration(seconds) {
   const s = Math.max(0, Math.floor(Number(seconds) || 0));
@@ -31,10 +30,10 @@ function render(data, nowSeconds, { cols, color = true } = {}) {
   const paint = (text, rgb) => (color ? `\x1b[38;2;${rgb.join(';')}m${text}\x1b[0m` : text);
   const wide = !(cols < 50);
   const limits = (data && data.rate_limits) || {};
+  const windows = [['5h', limits.five_hour], ['7d', limits.seven_day], ['ctx', data && data.context_window]];
 
   const segments = [];
-  for (const [label, key] of WINDOWS) {
-    const w = limits[key];
+  for (const [label, w] of windows) {
     if (!w || typeof w.used_percentage !== 'number' || !Number.isFinite(w.used_percentage)) continue;
     const pct = w.used_percentage;
     const hot = accent(pct);

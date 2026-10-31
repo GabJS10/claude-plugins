@@ -1,7 +1,7 @@
 {
   "name": "usage-bar",
-  "version": "0.1.0",
-  "description": "Status line minimalista con el uso de la ventana de 5h y semanal de tu suscripción, con tiempo hasta el reinicio.",
+  "version": "0.2.0",
+  "description": "Status line minimalista con el uso de la ventana de 5h y semanal de tu suscripción, con tiempo hasta el reinicio, y el contexto usado.",
   "author": { "name": "GabJS10" },
   "license": "MIT",
   "keywords": ["statusline", "usage", "rate-limits"]

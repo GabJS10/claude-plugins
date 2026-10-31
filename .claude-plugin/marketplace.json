@@ -8,7 +8,7 @@
     {
       "name": "usage-bar",
       "source": "./plugins/usage-bar",
-      "description": "Status line minimalista con el uso de la ventana de 5h y semanal de tu suscripción, con tiempo hasta el reinicio."
+      "description": "Status line minimalista con el uso de la ventana de 5h y semanal de tu suscripción, con tiempo hasta el reinicio, y el contexto usado."
     }
   ]
 }

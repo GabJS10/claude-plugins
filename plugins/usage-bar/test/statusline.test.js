@@ -47,6 +47,17 @@ test('render with only five_hour', () => {
   assert.strictEqual(strip(render(data, NOW, { cols: 120 })), '5h ▰▰▰▰▰▱▱▱▱▱ 48% · 2h13m');
 });
 
+test('render with context_window', () => {
+  const data = { ...sample, context_window: { used_percentage: 37.6 } };
+  assert.strictEqual(strip(render(data, NOW, { cols: 120 })), `${PLAIN}   ctx ▰▰▰▰▱▱▱▱▱▱ 38%`);
+  assert.strictEqual(strip(render(data, NOW, { cols: 49 })), '5h 48% · 2h13m   7d 22% · 3d4h   ctx 38%');
+});
+
+test('context_window alone, or with null percentage', () => {
+  assert.strictEqual(strip(render({ context_window: { used_percentage: 10 } }, NOW, {})), 'ctx ▰▱▱▱▱▱▱▱▱▱ 10%');
+  assert.strictEqual(strip(render({ ...sample, context_window: { used_percentage: null } }, NOW, { cols: 120 })), PLAIN);
+});
+
 test('render with no rate_limits', () => {
   assert.strictEqual(strip(render({}, NOW, { cols: 120 })), '5h — · 7d —');
   assert.strictEqual(strip(render({ rate_limits: {} }, NOW, {})), '5h — · 7d —');

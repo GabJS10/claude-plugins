@@ -1,11 +1,11 @@
 # usage-bar
 
-Status line minimalista para Claude Code que muestra el uso de tu suscripción: la ventana de 5 horas y la semanal, con el tiempo que falta para cada reinicio.
+Status line minimalista para Claude Code que muestra el uso de tu suscripción (la ventana de 5 horas y la semanal, con el tiempo que falta para cada reinicio) y el contexto usado en la sesión.
 
 Ejemplo:
 
 ```
-5h ▰▰▰▰▱▱▱▱▱▱ 48% · 2h13m   7d ▰▰▱▱▱▱▱▱▱▱ 22% · 3d4h
+5h ▰▰▰▰▱▱▱▱▱▱ 48% · 2h13m   7d ▰▰▱▱▱▱▱▱▱▱ 22% · 3d4h   ctx ▰▰▰▰▱▱▱▱▱▱ 38%
 ```
 
 ## Colores
